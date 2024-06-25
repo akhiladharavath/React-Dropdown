@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { DropdownButton,Dropdown } from 'react-bootstrap';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+
+  const handleSelect = (eventKey) =>{
+    alert(`Selected : ${eventKey}`);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <DropdownButton
+     id = "dropdown-button"
+     title = "Dropdown Button"
+     className='custom-dropdown'
+     onSelect={handleSelect}
+     >
+      <Dropdown.Item className="custom-item" eventKey="1">Action</Dropdown.Item>
+      <Dropdown.Item className="custom-item" eventKey="2"> Another Action</Dropdown.Item>
+      <Dropdown.Item className="custom-item" eventKey="3">Something Action</Dropdown.Item>
+
+     </DropdownButton>
     </div>
   );
 }
